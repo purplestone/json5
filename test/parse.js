@@ -118,6 +118,13 @@ function createTest(fileName, dir) {
                     'Test case bug: expected ES5 parsing to fail.');
                 testParseJSON5(filePath, str);
                 break;
+			case '.equal':
+				var aA = str.replace(/\r/g, '').split('\n======\n');
+				console.log(aA);
+				assert.equal(JSON5.stringify(JSON5.parse(aA[0])), aA[1],
+					'Test stringify equal'
+				);
+                break;
         }
     };
 }
